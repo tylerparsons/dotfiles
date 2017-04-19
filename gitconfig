@@ -1,0 +1,5 @@
+[url "https://"]
+	insteadOf = git://
+[user]
+	email = tparsons17@bloomberg.net
+	name = Tyler Parsons
