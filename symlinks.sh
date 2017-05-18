@@ -1,13 +1,14 @@
-#!/usr/local/bin/bash
+#!/bin/bash
 
 dotfiles=$(echo gitconfig \
                 bash_profile \
                 vimrc \
-                ideavimrc)
+                ideavimrc \
+                slate)
 
 for f in $dotfiles
 do
-    ln -s $f $HOME/.$f
+    ln -s `pwd`/$f $HOME/.$f
 done
 
 
