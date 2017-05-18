@@ -26,6 +26,7 @@ command Prof :e ~/.profile
 set nu
 set cmdheight=2
 Tab 4
+syntax on
 
 " FileType overrides
 autocmd FileType scala Tab 2
