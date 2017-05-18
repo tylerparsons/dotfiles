@@ -1,0 +1,69 @@
+# Config
+config windowHintsFontSize 100
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+config windowHintsTopLeftX (windowSizeX/2)-(windowHintsWidth/2)
+config windowHintsTopLeftY (windowSizeY/2)-(windowHintsHeight/2)
+config windowHintsIgnoreHiddenWindows false
+
+# General aliases
+alias sox screenOriginX
+alias soy screenOriginY
+alias ssx screenSizeX
+alias ssy screenSizeY
+
+# Position aliases
+alias centered ${sox}+${ssx}/8;${soy}+${ssy}/8 ${ssx}/8*6;${ssy}/8*6
+alias fullscreen ${sox};${soy} ${ssx};${ssy}
+alias leftHalf ${sox};${soy} ${ssx}/2;${ssy}
+alias bottomHalf ${sox};${soy}+${ssy}/2 ${ssx};${ssy}/2
+alias topHalf ${sox};${soy} ${ssx};${ssy}/2
+alias rightHalf ${sox}+${ssx}/2;${soy} ${ssx}/2;${ssy}
+alias topLeftQuarter ${sox};${soy} ${ssx}/2;${ssy}/2
+alias topRightQuarter ${sox}+${ssx}/2;${soy} ${ssx}/2;${ssy}/2
+alias bottomLeftQuarter ${sox};${soy}+${ssy}/2 ${ssx}/2;${ssy}/2
+alias bottomRightQuarter ${sox}+${ssx}/2;${soy}+${ssy}/2 ${ssx}/2;${ssy}/2
+
+# 1 monitor layout
+layout oneScreen 'Google Chrome' move ${fullscreen}
+layout oneScreen 'iTerm': move ${leftHalf}
+ 
+# 3 monitor layout
+layout threeScreen 'Google Chrome':SORT_TITLE,REPEAT_LAST move ${fullscreen} 1 | move ${leftHalf} 0 | move ${rightHalf} 0
+layout threeScreen 'iTerm':SORT_TITLE,REPEAT_LAST move ${leftHalf} 1 | move ${rightHalf} 1
+layout threeScreen 'RubyMine' move ${fullscreen} 2
+layout threeScreen 'pgAdmin 4' move ${fullscreen} 2
+layout threeScreen 'Citrix Viewer':IGNORE_FAIL,TITLE_ORDER='PRDW - LOGIN - Bloomberg;PRDW - LOGIN - Bloomberg' move ${topRightQuarter} 0 | move ${bottomRightQuarter} 0
+layout threeScreen 'Citrix Viewer':TITLE_ORDER_REGEX='Message*' move ${topLeftQuarter} 0
+
+# Bindings
+bind g:ctrl;alt move ${centered}
+bind o:ctrl;alt move ${fullscreen}
+bind h:ctrl;alt move ${leftHalf}
+bind j:ctrl;alt move ${bottomHalf}
+bind k:ctrl;alt move ${topHalf}
+bind l:ctrl;alt move ${rightHalf}
+bind u:ctrl;alt move ${topLeftQuarter}
+bind i:ctrl;alt move ${topRightQuarter}
+bind n:ctrl;alt move ${bottomLeftQuarter}
+bind m:ctrl;alt move ${bottomRightQuarter}
+
+bind ;:ctrl;alt throw previous
+bind /:ctrl;alt hint ASDFJKLGHWERTYUIO
+bind 1:ctrl;alt layout oneScreen
+bind 3:ctrl;alt layout threeScreen
+
+bind right:ctrl;alt resize +10% +0
+bind left:ctrl;alt  resize -10% +0
+bind up:ctrl;alt    resize +0 -10%
+bind down:ctrl;alt  resize +0 +10%
+
+bind right:ctrl;alt nudge +10% +0
+bind left:ctrl;alt  nudge -10% +0
+bind up:ctrl;alt    nudge +0 -10%
+bind down:ctrl;alt  nudge +0 +10%
+
+bind right:ctrl;shift nudge +10% +0
+bind left:ctrl;shift  nudge -10% +0
+bind up:ctrl;shift    nudge +0 -10%
+bind down:ctrl;shift  nudge +0 +10%
