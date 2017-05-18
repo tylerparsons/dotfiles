@@ -48,22 +48,22 @@ bind i:ctrl;alt move ${topRightQuarter}
 bind n:ctrl;alt move ${bottomLeftQuarter}
 bind m:ctrl;alt move ${bottomRightQuarter}
 
-bind ;:ctrl;alt throw previous
 bind /:ctrl;alt hint ASDFJKLGHWERTYUIO
 bind 1:ctrl;alt layout oneScreen
 bind 3:ctrl;alt layout threeScreen
 
+# Resizing
 bind right:ctrl;alt resize +10% +0
 bind left:ctrl;alt  resize -10% +0
 bind up:ctrl;alt    resize +0 -10%
 bind down:ctrl;alt  resize +0 +10%
 
-bind right:ctrl;alt nudge +10% +0
-bind left:ctrl;alt  nudge -10% +0
-bind up:ctrl;alt    nudge +0 -10%
-bind down:ctrl;alt  nudge +0 +10%
+# Nudging
+bind right:ctrl;alt;cmd nudge +10% +0
+bind left:ctrl;alt;cmd  nudge -10% +0
+bind up:ctrl;alt;cmd    nudge +0 -10%
+bind down:ctrl;alt;cmd  nudge +0 +10%
 
-bind right:ctrl;shift nudge +10% +0
-bind left:ctrl;shift  nudge -10% +0
-bind up:ctrl;shift    nudge +0 -10%
-bind down:ctrl;shift  nudge +0 +10%
+# Switching displays
+bind right:alt;cmd throw next
+bind left:alt;cmd  throw previous
